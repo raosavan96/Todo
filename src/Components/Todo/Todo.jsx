@@ -37,6 +37,17 @@ function Todo() {
     let checkComplete = [...addTask];
     checkComplete[id].complete = !checkComplete[id].complete;
     setAddTask(checkComplete);
+
+    let inputBoolean =
+      document.getElementsByClassName("input_toast")[id].checked;
+
+    if (inputBoolean === true) {
+      toast.success("Task Complete");
+    }
+
+    if (inputBoolean === false) {
+      toast.error("Remaining Task");
+    }
   }
 
   function handleDelete(id) {
@@ -44,6 +55,7 @@ function Todo() {
     let mainDelete = deleteArray.filter((value, index) => {
       return id !== index;
     });
+    toast.success("Task Deleted");
 
     setAddTask(mainDelete);
   }
@@ -61,6 +73,7 @@ function Todo() {
 
   function allDelete() {
     setAddTask([]);
+    toast.success("All Task Deleted");
   }
 
   useEffect(() => {
@@ -97,6 +110,9 @@ function Todo() {
           </div>
           <div className={`${TodoCss.todo_form} ${TodoCss.box_sdw} mt-4`}>
             <form onClick={handleForm}>
+              <div className={`${TodoCss.input_plus}`}>
+                <i class="fa-solid fa-plus"></i>
+              </div>
               <input
                 type="text"
                 className="form-control"
@@ -121,7 +137,8 @@ function Todo() {
               <p>
                 <span>{totalTask}</span> Total task
               </p>
-              <button style={{boxShadow:"none"}}
+              <button
+                style={{ boxShadow: "none" }}
                 className={`btn ${TodoCss.alldelete_task}`}
                 onClick={allDelete}
               >
@@ -135,7 +152,7 @@ function Todo() {
                     <li className="d-flex justify-content-between w-100">
                       <div className="d-flex align-items-center">
                         <input
-                          className="form-check-input me-3"
+                          className="form-check-input me-3 input_toast"
                           type="checkbox"
                           id="checkboxNoLabel"
                           value=""
