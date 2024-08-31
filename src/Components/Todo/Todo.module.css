@@ -65,7 +65,8 @@ video {
 }
 
 .todo_box {
-  width: 550px;
+  max-width: 550px;
+  width: 100%;
   height: auto;
   /* border: 1px solid #ccc; */
 }
@@ -225,6 +226,81 @@ video {
   font-size: 18px;
   background-color: transparent;
 }
+
+/* Media Screen size start*/
+
+@media screen and (max-width: 550px) {
+
+  .app_name h1 {
+    font-size: 29px;
+  }
+
+  .app_name button {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+
+  .todo_box {
+    width: 90%;
+  }
+
+  .todo_form form button {
+    font-size: 13px;
+  }
+  .todo_form form input {
+    font-size: 12px;
+  }
+
+.content_acc_sec {
+  padding: 5px 8px;
+}
+
+.content_acc_sec button {
+  font-size: 14px !important;
+}
+
+.content_acc_sec p {
+  font-size: 10px;
+}
+
+.content_acc_sec p span {
+  font-size: 11px !important;
+}
+
+  .todo_list {
+    padding: 0;
+  }
+
+  .input_plus {
+    width: 15px;
+    height: 15px;
+  }
+
+  .input_plus i {
+    font-size: 8px;
+  }
+
+  .todo_form {
+    height: 50px;
+  }
+
+  .todo_list input {
+    width: 12px;
+    height: 12px;
+  }
+
+    .todo_list p {
+      font-size: 12px;
+    }
+
+    .todo_list button {
+      font-size: 13px;
+    }
+}
+
+/* Media Screen size end */
 
 /* Todo list items end */
 /* Content Sec End */
