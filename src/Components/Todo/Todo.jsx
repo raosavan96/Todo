@@ -103,7 +103,7 @@ function Todo() {
       <div className={`${TodoCss.main_todo} ${TodoCss.only_center}`}>
         <div className={TodoCss.todo_box}>
           <div className={`${TodoCss.app_name}`}>
-            <h1>My Task</h1>
+            <h1>Yadav</h1>
             <button className={`${TodoCss.only_center} btn`}>
               <i class="fa-solid fa-moon"></i>
             </button>
