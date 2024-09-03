@@ -4,13 +4,14 @@ import "./Todo.css";
 
 function Todo() {
   let allTask = JSON.parse(localStorage.getItem("todo")) || [];
+  const savedTheme = JSON.parse(localStorage.getItem("theme")) || "light_theme";
 
   const [task, setTask] = useState("");
   const [addTask, setAddTask] = useState(allTask);
   const [rTask, setRtask] = useState(0);
   const [cTask, setCtask] = useState(0);
   const [totalTask, setTotalTask] = useState(0);
-  const [Theme, setTheme] = useState("light_theme");
+  const [Theme, setTheme] = useState(savedTheme);
 
   function handleForm(e) {
     return e.preventDefault();
