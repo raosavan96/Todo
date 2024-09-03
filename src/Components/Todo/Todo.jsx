@@ -85,7 +85,6 @@ function Todo() {
     Theme === "dark_theme" ? setTheme("light_theme") : setTheme("dark_theme");
 
     let iconChange = document.getElementById("theme_icon").attributes[1].value;
-    console.log(iconChange);
 
     let theme_icons = document.getElementById("theme_icon").attributes[2];
     let theme_value = document.getElementById("theme_icon").attributes[1];
@@ -93,9 +92,11 @@ function Todo() {
     if (iconChange === "true") {
       theme_icons.value = "fa-solid fa-sun";
       theme_value.value = "false";
+      toast.success("Dark Mode");
     } else if (iconChange === "false") {
       theme_icons.value = "fa-solid fa-moon";
       theme_value.value = "true";
+      toast.success("Light Mode");
     }
   }
 

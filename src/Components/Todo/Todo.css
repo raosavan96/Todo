@@ -51,7 +51,7 @@ video {
 }
 
 .dark_theme {
-  --button_bgcolor: #d1d5db;
+  --button_bgcolor: #595959;
   --button_color: #fff;
   --text_color: #dddddd;
   --border-colr: #dddddd;
