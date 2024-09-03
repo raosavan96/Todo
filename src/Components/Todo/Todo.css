@@ -35,24 +35,40 @@ video {
 }
 
 /* Common Colours Start */
-:root {
-  --button_bgcolor: #1a1a1ad3;
+.light_theme {
+  --button_bgcolor: #d1d5db;
+  --button_color: #000;
   --text_color: #615f5f;
   --border-colr: #ccc;
   --list_color: #5c5c5c;
   --white_color: #fff;
+  --hedding_color: #fff;
+  --main_bg: linear-gradient(
+    125deg,
+    rgba(131, 21, 216, 1) 32%,
+    rgba(12, 174, 249, 1) 94%
+  );
 }
+
+.dark_theme {
+  --button_bgcolor: #d1d5db;
+  --button_color: #fff;
+  --text_color: #dddddd;
+  --border-colr: #dddddd;
+  --list_color: #f4f4f4;
+  --white_color: #1f2937;
+  --hedding_color: #fff;
+  --main_bg: linear-gradient(125deg, #3e3e3e 22%, #000 78%);
+}
+
+/* 555455 090909 */
+
 /* Common Colours End */
 
 /* Todo Style Start */
 
 .main_todo {
-  background: #8315d8;
-  background: linear-gradient(
-    125deg,
-    rgba(131, 21, 216, 1) 32%,
-    rgba(12, 174, 249, 1) 94%
-  );
+  background: var(--main_bg);
   width: 100%;
   height: 100vh;
   padding: 40px 0;
@@ -79,7 +95,7 @@ video {
 }
 
 .app_name h1 {
-  color: var(--white_color);
+  color: var(--hedding_color);
   letter-spacing: 4px;
   font-weight: 500;
   font-size: 40px;
@@ -95,7 +111,7 @@ video {
 }
 
 .app_name button i {
-  color: var(--white_color);
+  color: var(--button_color);
 }
 
 /* Form Sec Start */
@@ -129,6 +145,7 @@ video {
   width: 15%;
   font-size: 20px;
   font-weight: 500;
+  background-color: var(--white_color);
 }
 
 .todo_form form input {
@@ -136,6 +153,7 @@ video {
   font-size: 14px;
   color: var(--text_color);
   width: 78%;
+  background-color: var(--white_color);
 }
 
 .todo_form form input:focus {
@@ -154,6 +172,7 @@ video {
 
 .input_plus i {
   font-size: 10px;
+  color: var(--text_color);
 }
 
 /* Form Sec End */
@@ -231,7 +250,6 @@ video {
 /* Media Screen size start*/
 
 @media screen and (max-width: 550px) {
-
   .app_name h1 {
     font-size: 29px;
   }
@@ -254,21 +272,21 @@ video {
     font-size: 12px;
   }
 
-.content_acc_sec {
-  padding: 5px 8px;
-}
+  .content_acc_sec {
+    padding: 5px 8px;
+  }
 
-.content_acc_sec button {
-  font-size: 14px !important;
-}
+  .content_acc_sec button {
+    font-size: 14px !important;
+  }
 
-.content_acc_sec p {
-  font-size: 10px;
-}
+  .content_acc_sec p {
+    font-size: 10px;
+  }
 
-.content_acc_sec p span {
-  font-size: 11px !important;
-}
+  .content_acc_sec p span {
+    font-size: 11px !important;
+  }
 
   .todo_list {
     padding: 0;
@@ -292,13 +310,13 @@ video {
     height: 12px;
   }
 
-    .todo_list p {
-      font-size: 12px;
-    }
+  .todo_list p {
+    font-size: 12px;
+  }
 
-    .todo_list button {
-      font-size: 13px;
-    }
+  .todo_list button {
+    font-size: 13px;
+  }
 }
 
 /* Media Screen size end */
@@ -332,6 +350,15 @@ video {
 .form-control:focus {
   color: #212529;
   background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem transparent !important;
+}
+
+
+.form-control:focus {
+  color: var(--text_color) !important;
+  background-color: transparent !important;
   border-color: #86b7fe;
   outline: 0;
   box-shadow: 0 0 0 0.25rem transparent !important;

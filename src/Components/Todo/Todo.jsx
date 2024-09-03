@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import TodoCss from "./Todo.module.css";
+import "./Todo.css";
 
 function Todo() {
   let allTask = JSON.parse(localStorage.getItem("todo")) || [];
@@ -10,6 +10,7 @@ function Todo() {
   const [rTask, setRtask] = useState(0);
   const [cTask, setCtask] = useState(0);
   const [totalTask, setTotalTask] = useState(0);
+  const [Theme, setTheme] = useState("light_theme");
 
   function handleForm(e) {
     return e.preventDefault();
@@ -72,8 +73,29 @@ function Todo() {
   }
 
   function allDelete() {
-    setAddTask([]);
-    toast.success("All Task Deleted");
+    if (addTask) {
+      setAddTask([]);
+      toast.success("All Task Deleted");
+    } else {
+      toast.error("Not Task for Deleted");
+    }
+  }
+
+  function handleTheme() {
+    Theme === "dark_theme" ? setTheme("light_theme") : setTheme("dark_theme");
+
+    let iconChange = document.getElementById("theme_icon").attributes[1].value;
+    console.log(iconChange);
+
+    if (iconChange === "true") {
+      document.getElementById("theme_icon").attributes[2].value =
+        "fa-solid fa-sun";
+      document.getElementById("theme_icon").attributes[1].value = "false";
+    } else if (iconChange === "false") {
+      document.getElementById("theme_icon").attributes[2].value =
+        "fa-solid fa-moon";
+      document.getElementById("theme_icon").attributes[1].value = "true";
+    }
   }
 
   useEffect(() => {
@@ -95,22 +117,30 @@ function Todo() {
     setTotalTask(totalTaskNo.length);
 
     localStorage.setItem("todo", JSON.stringify(addTask));
-  }, [addTask]);
+    localStorage.setItem("theme", JSON.stringify(Theme));
+
+    document.body.className = Theme;
+  }, [addTask, Theme]);
 
   return (
     <>
       <Toaster />
-      <div className={`${TodoCss.main_todo} ${TodoCss.only_center}`}>
-        <div className={TodoCss.todo_box}>
-          <div className={`${TodoCss.app_name}`}>
+      <div className={`main_todo only_center`}>
+        <div className={`todo_box`}>
+          <div className={`app_name`}>
             <h1>My Task</h1>
-            <button className={`${TodoCss.only_center} btn`}>
-              <i class="fa-solid fa-moon"></i>
+            <button
+              onClick={() => {
+                handleTheme();
+              }}
+              className={`only_center btn`}
+            >
+              <i id="theme_icon" check="true" class="fa-solid fa-moon"></i>
             </button>
           </div>
-          <div className={`${TodoCss.todo_form} ${TodoCss.box_sdw} mt-4`}>
+          <div className={`todo_form box_sdw mt-4`}>
             <form onClick={handleForm}>
-              <div className={`${TodoCss.input_plus}`}>
+              <div className={`input_plus`}>
                 <i class="fa-solid fa-plus"></i>
               </div>
               <input
@@ -126,8 +156,8 @@ function Todo() {
             </form>
           </div>
 
-          <div className={`${TodoCss.todo_content} ${TodoCss.box_sdw} mt-4`}>
-            <div className={TodoCss.content_acc_sec}>
+          <div className={`todo_content box_sdw mt-4`}>
+            <div className={`content_acc_sec`}>
               <p>
                 <span>{rTask}</span> tasks left
               </p>
@@ -139,14 +169,14 @@ function Todo() {
               </p>
               <button
                 style={{ boxShadow: "none" }}
-                className={`btn ${TodoCss.alldelete_task}`}
+                className={`btn alldelete_task`}
                 onClick={allDelete}
               >
                 <i class="fa-regular fa-trash-can text-danger"></i>
               </button>
             </div>
-            <div className={TodoCss.todo_content_box}>
-              <div className={TodoCss.todo_list}>
+            <div className={`todo_content_box`}>
+              <div className={`todo_list`}>
                 {addTask.map((value, index) => (
                   <ul>
                     <li className="d-flex justify-content-between w-100">
