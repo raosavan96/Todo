@@ -58,7 +58,7 @@ video {
   --list_color: #f4f4f4;
   --white_color: #1f2937;
   --hedding_color: #fff;
-  --main_bg: linear-gradient(125deg, #3e3e3e 22%, #000 78%);
+  --main_bg: linear-gradient(125deg, #000 22%, #000 78%);
 }
 
 /* 555455 090909 */
