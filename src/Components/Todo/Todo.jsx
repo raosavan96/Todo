@@ -87,14 +87,15 @@ function Todo() {
     let iconChange = document.getElementById("theme_icon").attributes[1].value;
     console.log(iconChange);
 
+    let theme_icons = document.getElementById("theme_icon").attributes[2];
+    let theme_value = document.getElementById("theme_icon").attributes[1];
+
     if (iconChange === "true") {
-      document.getElementById("theme_icon").attributes[2].value =
-        "fa-solid fa-sun";
-      document.getElementById("theme_icon").attributes[1].value = "false";
+      theme_icons.value = "fa-solid fa-sun";
+      theme_value.value = "false";
     } else if (iconChange === "false") {
-      document.getElementById("theme_icon").attributes[2].value =
-        "fa-solid fa-moon";
-      document.getElementById("theme_icon").attributes[1].value = "true";
+      theme_icons.value = "fa-solid fa-moon";
+      theme_value.value = "true";
     }
   }
 
