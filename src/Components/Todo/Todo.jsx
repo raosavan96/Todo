@@ -93,11 +93,11 @@ function Todo() {
     if (iconChange === "true") {
       theme_icons.value = "fa-solid fa-sun";
       theme_value.value = "false";
-      toast.success("Dark Mode");
+      toast.success("Light Mode");
     } else if (iconChange === "false") {
       theme_icons.value = "fa-solid fa-moon";
       theme_value.value = "true";
-      toast.success("Light Mode");
+      toast.success("Dark Mode");
     }
   }
 
