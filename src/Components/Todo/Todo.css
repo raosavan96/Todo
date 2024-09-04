@@ -48,7 +48,7 @@ video {
     rgba(131, 21, 216, 1) 32%,
     rgba(12, 174, 249, 1) 94%
   );
-}
+} 
 
 .dark_theme {
   --button_bgcolor: #595959;
